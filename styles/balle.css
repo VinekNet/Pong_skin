@@ -1,0 +1,40 @@
+.balle{
+    background-color: #fff;
+    --diamettre:40px;
+    width: var(--diamettre);
+    height: var(--diamettre);
+    top: calc( 50% - var(--diamettre) / 2 );
+    left: calc( 50% - var(--diamettre) / 2 );
+    border-radius: 100%;
+    box-shadow: 20px 20px 8px rgba(0,0,0,0.5);
+    transition: box-shadow 0.5s ease-in-out, transform 0.1s ease-in-out;
+}
+.balle-dedans{
+    background-image: url('./skins/wimbledon/balle.png');
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation-name: balle-tourne;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes balle-tourne {
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+.terrain.pause .balle-dedans{
+    animation-duration: 0s;
+}
+.terrain.pause .balle{
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+    transform: scale(0);
+}

@@ -1,0 +1,93 @@
+.perso{
+    position: relative;
+    --taille:10vmin;
+    width: var(--taille);
+    height: var(--taille);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+
+#perso1{
+    background-image: url("./skins/wimbledon/public/1.png");
+    animation-duration: 1s;
+
+}
+#perso2{
+    background-image: url("./skins/wimbledon/public/2.png");
+    margin-top: 9vmin;
+}
+#perso3{
+    background-image: url("./skins/wimbledon/public/3.png");
+    animation-duration: 4s;
+    margin-top: 1vmin;
+}
+#perso4{
+    background-image: url("./skins/wimbledon/public/4.png");
+    margin-top: 7vmin;
+}
+#perso5{
+    background-image: url("./skins/wimbledon/public/5.png");
+    animation-duration: 4s;
+}
+#perso6{
+    background-image: url("./skins/wimbledon/public/6.png");
+    margin-top: 7vmin;
+}
+#perso7{
+    background-image: url("./skins/wimbledon/public/7.png");
+}
+#perso8{
+    background-image: url("./skins/wimbledon/public/8.png");
+    animation-duration: 1s;
+    margin-top: 2vmin;
+}
+#perso9{
+    background-image: url("./skins/wimbledon/public/9.png");
+    margin-top:8vmin;
+}
+#perso10{
+    background-image: url("./skins/wimbledon/public/10.png");
+    animation-duration: 3s;
+}
+#perso11{
+    background-image: url("./skins/wimbledon/public/11.png");
+    margin-top: 3vmin;
+}
+
+@keyframes perso {
+    0%{
+        transform: translateY(-2px) rotate(-2deg) scale(1);
+    }
+    25%{
+        transform: translateY(-1px) rotate(2deg) scale(1.01) skewX(4deg);
+    }
+    75%{
+        transform: translateY(-3px) rotate(-1deg) scale(1.01);
+    }
+    100%{
+        transform: translateY(1px) rotate(1deg) scale(0.99) skewX(-4deg);;
+    }
+}
+
+.perso{
+    animation-name: perso;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform-origin: center;
+    margin-top: -1vmin;
+}
+
+
+.perso:nth-child(odd){
+    animation-duration: 9s;
+}
+.perso:nth-child(3n){
+    animation-duration: 10s;
+}
+.perso:nth-child(4+4n){
+    animation-duration: 11s;
+}

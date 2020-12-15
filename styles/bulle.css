@@ -1,0 +1,54 @@
+/** genre une bulle de BD **/
+.bulle{
+    transition: all 0.1s;
+    position: absolute;
+    font-size: 12px;
+    line-height: 1.2;
+    bottom: 100%;
+    left: calc(50% - 50px);
+    background-color: #F0F0F0;
+    color: #333;
+    box-shadow: 8px 8px 8px #00000042;
+    padding: 8px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    min-height: 50px;
+    opacity: 1;
+    filter: blur(0px);
+    animation-name: bulle;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes bulle {
+    from{
+        transform: rotate(2deg) skewY(-2deg);
+    }
+    to{
+        transform: rotate(-2deg) skewY(2deg);
+    }
+}
+
+/** un triangle css **/
+.bulle::after{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    content: " ";
+    display: block;
+    border-color: #F0F0F0 transparent;
+    border-style: solid;
+    border-width: 10px 5px 0px 5px;
+    height: 0;
+    width: 0;
+}
+.bulle:empty{
+    opacity: 0;
+    filter: blur(8px);
+    margin-bottom: -10px;
+}

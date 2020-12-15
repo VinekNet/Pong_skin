@@ -1,0 +1,228 @@
+html{
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    --couleur-fond: #305535;
+    --couleur-elements:#FFF;
+    --couleur-on-sait-pas-trop:#808080;
+    --couleur-on-sait-pas-trop-foncee:#222;
+    --couleur-erreur:#F00;
+    --couleur-succes:#0f0;
+
+}
+*{
+    box-sizing: border-box !important;
+}
+body{
+    background-color: var(--couleur-fond);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+
+    max-height: 100vh;
+    max-width:100vw;
+    overflow: hidden;
+    margin: 0;
+    padding:0;
+    user-select: none;
+
+    background-repeat: repeat;
+}
+.background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    background-image: url('./skins/wimbledon/texture-background.jpg');
+    justify-content: center;
+    align-items: center;
+}
+
+.terrain{
+    transition: filter 1s, transform 1s;
+    width:90vmin;
+    height: calc( 9/16 * 90vmin );
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    border-top-color: var(--couleur-elements);
+    border-bottom-color: var(--couleur-elements);
+    position: relative;
+    transform-origin: center;
+    max-height: 90vh;
+    background-image: url('./skins/wimbledon/terrain.png');
+    background-size: cover;
+    background-position: center;
+}
+.terrain > *{
+    position: absolute;
+}
+.terrain.pause{
+    filter: blur(0px);
+}
+
+
+.haut{
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25vmin;
+}
+.haut > *{
+    width: 33%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bas{
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20vmin;
+    background-image: url('./skins/wimbledon/gradin.png');
+    background-size: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+.bas .persos{
+    max-width: 900px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo{
+    width: 15vmin;
+    height: 15vmin;
+    background-image: url("./skins/wimbledon/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.nom,.score{
+    mix-blend-mode: hard-light;
+    font-size: 5vmin;
+    font-weight: 700;
+    color: #fb8d39;
+    line-height: 1.1;
+}
+.score{
+    font-size: 8vmin;
+    font-weight: 800;
+}
+
+
+.raquette{
+    --hauteur:25%;
+    width: 15vmin;
+    height:var(--hauteur);
+    outline-offset: -1px;
+    top:calc( 50% - var(--hauteur) / 2  );
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s;
+}
+.raquette.joueur1{
+    left: -6%;
+    background-image: url("./skins/wimbledon/joueur1.png");
+}
+.raquette.joueur2{
+    right: -6%;
+    background-image: url("./skins/wimbledon/joueur2.png");
+}
+.raquette[sens='monte']{
+    transform: skewY(-15deg);
+}
+
+.raquette[sens='descend']{
+    transform: skewY(15deg);
+}
+
+.raquette.touche-balle{
+    transform: scale(1.1);
+    filter: saturate(1.5) invert(1);
+}
+
+/** effet de couleur qui peut être utilisé à plusieurs endroits **/
+.flash{
+    position: relative;
+    color:var(--couleur-succes) !important;
+}
+
+
+
+
+/** les boutons qui symbolisent les touches du clavier **/
+.touche{
+    color: var(--couleur-on-sait-pas-trop);
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--couleur-on-sait-pas-trop-foncee);
+    border-radius: 4px;
+    user-select:none;
+}
+
+.ecran-debut{
+    transition: all 3s;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+}
+.ecran-debut>*{
+    margin: 10px;
+}
+.ecran-debut .touche{
+    display: inline-flex;
+    transform: rotate(0deg) !important;
+}
+
+/* disparition de l'écran de début */
+.ecran-debut{
+    transition: all 2s;
+    transition-duration: 1s;
+    will-change: opacity, filter;
+    opacity: 1;
+    filter: blur(0px);
+}
+.ecran-debut.invisible{
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(16px);
+}
+
+/* un simple bouton (utilisé uniquement sur l'écran de début) */
+.btn{
+    color: var(--couleur-fond);
+    background-color:var(--couleur-elements);
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+@media (orientation:portrait){
+    .terrain{
+        transform: rotate(90deg);
+    }
+}
+
+
+
