@@ -1,6 +1,7 @@
 # Encore un pong
 
-https://davidmarsprof.github.io/pong-wimbledon/
+https://vineknet.github.io/Pong_skin/.
+
 
 Pour jouer...
 
