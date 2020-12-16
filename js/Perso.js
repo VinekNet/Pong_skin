@@ -4,14 +4,14 @@ class Perso extends ElementHtml{
         this.$bulle=$html.find(".bulle");
         this.mots=[
             "Bof"
-            ,"On s'emmerde un peu"
+            ,"Il tourne bien le singe"
             ,"Fait chaud"
             ,"..."
             ,"Rolland Garros c'est mieux"
-            ,"zyva l'autre avec sa raquette"
-            ,"sont pas doués"
-            ,"Ya koi ce soir à la télé?"
-            ,"vive moi!"
+            ,"Cool des bananes"
+            ,"Y a un truc qui contrôle les barils?"
+            ,"On devrait pas l'attaquer?"
+            ,"Comment on explique ça au boss?"
         ];
     }
     parle(blabla){
